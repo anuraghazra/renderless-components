@@ -37,5 +37,5 @@ jobs:
             exec(`yarn bundlesize`, (error, stdout, stderr) => {
               if (error) { console.log(error); return};
               if (stderr) { console.log(stderr); return};
-              github.issues.createComment({ issue_number, owner, repo, body: stdout });
+              github.issues.createComment({ issue_number, owner, repo, body: stdout.split("\n")[2] });
             });
